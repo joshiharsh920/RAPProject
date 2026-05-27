@@ -1,0 +1,39 @@
+managed implementation in class zcl_i_travel_m_rp unique;
+strict ( 2 );
+
+define behavior for ZI_TRAVEl_M_RP //alias <alias_name>
+persistent table /dmo/travel
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) TravelId;
+  association _booking { create; }
+
+  mapping for /dmo/travel{
+ AgencyId=agency_id;
+ TravelId=travel_id;
+ CustomerId=customer_id;
+  }
+}
+
+define behavior for zi_booking_m_rp //alias <alias_name>
+persistent table /dmo/booking
+lock dependent by _Travel
+authorization dependent by _Travel
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) TravelId, BookingId;
+  association _Travel;
+
+  mapping for /dmo/booking
+  {
+  BookingId=booking_id;
+  BookingDate=booking_date;
+  }
+}

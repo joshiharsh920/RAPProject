@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition'
+define service Ztravel_processor_sd_rp {
+  expose zc_travel_processor_m_rp  as Travel;
+  expose zc_booking_processor_m_rp as booking;
+}
