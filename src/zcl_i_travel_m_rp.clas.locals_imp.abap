@@ -53,20 +53,19 @@ CLASS lhc_ZI_TRAVEl_M_RP IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD get_instance_features.
- READ ENTITIES OF ZI_TRAVEL_M_RP IN LOCAL MODE
-  ENTITY ZI_TRAVEL_M_RP
-  FIELDS ( status )
-  WITH CORRESPONDING #( keys )
-  RESULT DATA(lt_travel_result)
-  FAILED failed.
+      METHOD get_instance_features.
+     READ ENTITIES OF ZI_TRAVEL_M_RP IN LOCAL MODE
+      ENTITY ZI_TRAVEL_M_RP
+      FIELDS ( status )
+      WITH CORRESPONDING #( keys )
+      RESULT DATA(lt_travel_result)
+      FAILED failed.
 
-  result = VALUE #( FOR ls_travel IN lt_travel_result
+      result = VALUE #( FOR ls_travel IN lt_travel_result
 
-             (  %tky = ls_travel-%tky
-             %field-travelid = if_abap_behv=>fc-f-read_only
-             %features-%action-acceptTravel = COND #( WHEN ls_travel-status = 'A'
-             THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled ) ) ) .
-  ENDMETHOD.
+                 (  %tky = ls_travel-%tky
+                 %features-%action-acceptTravel = COND #( WHEN ls_travel-status = 'A'
+                 THEN if_abap_behv=>fc-o-disabled ELSE if_abap_behv=>fc-o-enabled ) ) ) .
+      ENDMETHOD.
 
 ENDCLASS.

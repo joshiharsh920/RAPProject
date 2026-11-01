@@ -1,0 +1,4 @@
+@EndUserText.label: 'Application Projection view SC'
+define service ZSD_Application {
+  expose ZP_Application;
+}

@@ -1,0 +1,78 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Scholarship',
+    typeNamePlural: 'Scholarships',
+    title: {
+        type: #STANDARD,
+        value: 'scholarship_name'
+    },
+    description: {
+        type: #STANDARD,
+        value: 'scholarship_type'
+    }
+}
+
+annotate entity ZI_SchSubmission
+    with 
+{
+    
+
+    @UI.facet: [
+        {
+            id: 'ScholarshipDetails',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Scholarship Details',
+            position: 10
+        }
+    ]
+
+    @UI.lineItem: [{ position: 10, label: 'Scholarship ID' }]
+    @UI.identification: [{ position: 10, label: 'Scholarship ID' }]
+    @UI.selectionField: [{ position: 10 }]
+    scholarship_id;
+
+    @UI.lineItem: [{ position: 20, label: 'Scholarship Name' }]
+    @UI.identification: [{ position: 20, label: 'Scholarship Name' }]
+    @UI.selectionField: [{ position: 20 }]
+    scholarship_name;
+
+    @UI.lineItem: [{ position: 30, label: 'Description' }]
+    @UI.identification: [{ position: 30, label: 'Description' }]
+    description;
+
+    @UI.lineItem: [{ position: 40, label: 'Scholarship Type' }]
+    @UI.identification: [{ position: 40, label: 'Scholarship Type' }]
+    @UI.selectionField: [{ position: 30 }]
+    scholarship_type;
+
+    @UI.lineItem: [{ position: 50, label: 'Amount' }]
+    @UI.identification: [{ position: 50, label: 'Amount' }]
+    Amount;
+    @UI.lineItem: [{ position: 70, label: 'Minimum Percentage' }]
+    @UI.identification: [{ position: 70, label: 'Minimum Percentage' }]
+    minimum_percentage;
+
+    @UI.lineItem: [{ position: 80, label: 'Maximum Family Income' }]
+    @UI.identification: [{ position: 80, label: 'Maximum Family Income' }]
+    maximum_family_income;
+
+    @UI.lineItem: [{ position: 90, label: 'Start Date' }]
+    @UI.identification: [{ position: 90, label: 'Start Date' }]
+    start_date;
+
+    @UI.lineItem: [{ position: 100, label: 'End Date' }]
+    @UI.identification: [{ position: 100, label: 'End Date' }]
+    end_date;
+
+    @UI.lineItem: [{ position: 110, label: 'Maximum Applicants' }]
+    @UI.identification: [{ position: 110, label: 'Maximum Applicants' }]
+    max_applicants;
+
+    @UI.lineItem: [{ position: 120, label: 'Status' }]
+    @UI.identification: [{ position: 120, label: 'Status' }]
+    @UI.selectionField: [{ position: 40 }]
+    status;
+
+    
+}

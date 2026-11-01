@@ -1,0 +1,17 @@
+managed implementation in class zbp_i_application unique;
+strict ( 2 );
+
+define behavior for ZI_Application //alias <alias_name>
+persistent table zapplication
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  action verifyApplication parameter ZI_VerificationParams result [1] $self;
+
+  field ( readonly ) id;
+}

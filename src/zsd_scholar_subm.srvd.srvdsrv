@@ -1,0 +1,4 @@
+@EndUserText.label: 'Scholarship Submission Interface view'
+define service ZSD_Scholar_Subm {
+  expose ZI_SchSubmission;
+}

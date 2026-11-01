@@ -10,7 +10,7 @@ authorization master ( instance )
   create ( authorization : global );
   update;
   delete;
-  field ( features : instance ) TravelId;
+  field ( readonly : update ) TravelId;
   action( features : instance ) AcceptTravel result[1] $self;
   association _booking { create; }
 

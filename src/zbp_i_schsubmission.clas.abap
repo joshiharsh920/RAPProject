@@ -1,0 +1,5 @@
+CLASS zbp_i_schsubmission DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_schsubmission.
+ENDCLASS.
+
+CLASS zbp_i_schsubmission IMPLEMENTATION.
+ENDCLASS.

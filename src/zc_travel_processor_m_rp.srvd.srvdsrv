@@ -1,4 +1,5 @@
 @EndUserText.label: 'Travel Projection View Service'
 define service ZC_TRAVEL_PROCESSOR_M_RP {
-  expose zc_travel_processor_m_rp as Travel;
+  expose zc_travel_processor_m_rp  as Travel;
+  expose zc_booking_processor_m_rp as booking;
 }

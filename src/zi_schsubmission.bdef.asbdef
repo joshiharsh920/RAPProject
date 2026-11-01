@@ -1,0 +1,40 @@
+managed implementation in class zbp_i_schsubmission unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_SchSubmission //alias <alias_name>
+persistent table zsc_scholarship
+draft table zscscholarship_d
+lock master total etag LastChangedAt
+authorization master ( instance )
+//etag master <field_name>
+{
+  create( authorization : global );
+  update;
+  delete;
+
+ field ( readonly, numbering : managed ) scholarship_id;
+ field ( readonly ) LastChangedAt, LocalLastChangedAt;
+
+   mapping for zsc_scholarship
+{
+  scholarship_id         = scholarship_id;
+  scholarship_name       = scholarship_name;
+  description            = description;
+  scholarship_type       = scholarship_type;
+  Amount                 = amount;
+  CurrencyCode            = currency_code;
+  minimum_percentage     = minimum_percentage;
+  maximum_family_income  = maximum_family_income;
+  start_date             = start_date;
+  end_date               = end_date;
+  max_applicants         = max_applicants;
+  status                 = status;
+}
+
+    draft action Edit;
+    draft action Activate;
+    draft action Discard;
+    draft action Resume;
+    draft determine action Prepare;
+}
